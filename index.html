@@ -1,45 +1,64 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Invincible - Episode 1</title>
+    <title>Invincible - Season 1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        body {
-            background-color: #1a1a1a;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
-            font-family: Arial, sans-serif;
-        }
-        
-        .video-container {
-            width: 640px;
-            max-width: 100%;
-        }
-        
-        video {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-        }
-        
-        .episode-info {
-            margin-top: 10px;
-            font-size: 18px;
-            font-weight: bold;
-        }
+        /* ... (keep the same CSS styles as before) ... */
     </style>
 </head>
 <body>
-    <div class="video-container">
-        <video controls>
-            <source src="https://dn720704.ca.archive.org/0/items/invincible-2021-s-01-e-02-here-goes-nothing-1080p-web-dl-x-265-sampa/Invincible%20%282021%29%20Season%201%20S01%20%281080p%20WEB-DL%20x265%20HEVC%2010bit%20EAC3%205.1%20SAMPA%29/Invincible%20%282021%29%20-%20S01E01%20-%20It%27s%20About%20Time%20%281080p%20WEB-DL%20x265%20SAMPA%29.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <div class="episode-info">
-            Episode 1 - "It's About Time"
+    <div class="container">
+        <h1>Invincible - Season 1</h1>
+        
+        <div class="episode-list" id="episodeList"></div>
+        
+        <div class="video-container">
+            <video controls id="mainVideo">
+                <source src="" type="video/mp4" class="video-source">
+                Your browser does not support the video tag.
+            </video>
+            <div class="episode-info" id="episodeTitle"></div>
         </div>
     </div>
+
+    <script>
+        const episodes = [
+            {
+                title: "Episode 1 - It's About Time",
+                url: "https://dn720704.ca.archive.org/0/items/invincible-2021-s-01-e-02-here-goes-nothing-1080p-web-dl-x-265-sampa/Invincible%20%282021%29%20Season%201%20S01%20%281080p%20WEB-DL%20x265%20HEVC%2010bit%20EAC3%205.1%20SAMPA%29/Invincible%20%282021%29%20-%20S01E01%20-%20It%27s%20About%20Time%20%281080p%20WEB-DL%20x265%20SAMPA%29.mp4"
+            },
+            {
+                title: "Episode 2 - Here Goes Nothing",
+                url: "https://dn720704.ca.archive.org/0/items/invincible-2021-s-01-e-02-here-goes-nothing-1080p-web-dl-x-265-sampa/Invincible%20%282021%29%20Season%201%20S01%20%281080p%20WEB-DL%20x265%20HEVC%2010bit%20EAC3%205.1%20SAMPA%29/Invincible%20%282021%29%20-%20S01E02%20-%20Here%20Goes%20Nothing%20%281080p%20WEB-DL%20x265%20SAMPA%29.mp4"
+            },
+            {
+                title: "Episode 3 - Who Are You Calling Ugly",
+                url: "https://dn720704.ca.archive.org/0/items/invincible-2021-s-01-e-02-here-goes-nothing-1080p-web-dl-x-265-sampa/Invincible%20%282021%29%20Season%201%20S01%20%281080p%20WEB-DL%20x265%20HEVC%2010bit%20EAC3%205.1%20SAMPA%29/Invincible%20%282021%29%20-%20S01E03%20-%20Who%20Are%20You%20Calling%20Ugly%20%281080p%20WEB-DL%20x265%20SAMPA%29.mp4"
+            },
+            {
+                title: "Episode 4 - Neil Armstrong Eat Your Heart Out",
+                url: "https://dn720704.ca.archive.org/0/items/invincible-2021-s-01-e-02-here-goes-nothing-1080p-web-dl-x-265-sampa/Invincible%20%282021%29%20Season%201%20S01%20%281080p%20WEB-DL%20x265%20HEVC%2010bit%20EAC3%205.1%20SAMPA%29/Invincible%20%282021%29%20-%20S01E04%20-%20Neil%20Armstrong%20Eat%20Your%20Heart%20Out%20%281080p%20WEB-DL%20x265%20SAMPA%29.mp4"
+            },
+            {
+                title: "Episode 5 - That Actually Hurt",
+                url: "https://dn720704.ca.archive.org/0/items/invincible-2021-s-01-e-02-here-goes-nothing-1080p-web-dl-x-265-sampa/Invincible%20%282021%29%20Season%201%20S01%20%281080p%20WEB-DL%20x265%20HEVC%2010bit%20EAC3%205.1%20SAMPA%29/Invincible%20%282021%29%20-%20S01E05%20-%20That%20Actually%20Hurt%20%281080p%20WEB-DL%20x265%20SAMPA%29.mp4"
+            },
+            {
+                title: "Episode 6 - You Look Kinda Dead",
+                url: "https://dn720704.ca.archive.org/0/items/invincible-2021-s-01-e-02-here-goes-nothing-1080p-web-dl-x-265-sampa/Invincible%20%282021%29%20Season%201%20S01%20%281080p%20WEB-DL%20x265%20HEVC%2010bit%20EAC3%205.1%20SAMPA%29/Invincible%20%282021%29%20-%20S01E06%20-%20You%20Look%20Kinda%20Dead%20%281080p%20WEB-DL%20x265%20SAMPA%29.mp4"
+            },
+            {
+                title: "Episode 7 - We Need To Talk",
+                url: "https://dn720704.ca.archive.org/0/items/invincible-2021-s-01-e-02-here-goes-nothing-1080p-web-dl-x-265-sampa/Invincible%20%282021%29%20Season%201%20S01%20%281080p%20WEB-DL%20x265%20HEVC%2010bit%20EAC3%205.1%20SAMPA%29/Invincible%20%282021%29%20-%20S01E07%20-%20We%20Need%20To%20Talk%20%281080p%20WEB-DL%20x265%20SAMPA%29.mp4"
+            },
+            {
+                title: "Episode 8 - Where I Really Come From",
+                url: "https://dn720704.ca.archive.org/0/items/invincible-2021-s-01-e-02-here-goes-nothing-1080p-web-dl-x-265-sampa/Invincible%20%282021%29%20Season%201%20S01%20%281080p%20WEB-DL%20x265%20HEVC%2010bit%20EAC3%205.1%20SAMPA%29/Invincible%20%282021%29%20-%20S01E08%20-%20Where%20I%20Really%20Come%20From%20%281080p%20WEB-DL%20x265%20SAMPA%29.mp4"
+            }
+        ];
+
+        // ... (keep the same JavaScript code as before) ...
+    </script>
 </body>
-</html>
+        </html>
