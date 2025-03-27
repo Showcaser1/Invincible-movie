@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Invincible | Stream Seasons 1 & 2</title>
+    <title>Invincible | Stream All Seasons</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Watch Invincible Seasons 1 & 2 episodes in high quality">
+    <meta name="description" content="Watch Invincible Seasons 1-3 in high quality">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Bangers&display=swap" rel="stylesheet">
@@ -73,6 +73,7 @@
             display: flex;
             gap: 10px;
             margin-bottom: 20px;
+            flex-wrap: wrap;
         }
         
         .season-btn {
@@ -142,6 +143,22 @@
             display: flex;
             flex-direction: column;
             gap: 10px;
+            max-height: 600px;
+            overflow-y: auto;
+            padding-right: 5px;
+        }
+        
+        .episode-list::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        .episode-list::-webkit-scrollbar-track {
+            background: var(--secondary);
+        }
+        
+        .episode-list::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 3px;
         }
         
         .episode-btn {
@@ -375,6 +392,7 @@
         <div class="season-selector">
             <button class="season-btn active" id="season1Btn">Season 1</button>
             <button class="season-btn" id="season2Btn">Season 2</button>
+            <button class="season-btn" id="season3Btn">Season 3</button>
         </div>
         
         <div class="main-content">
@@ -450,6 +468,21 @@
                         title: "Episode 5: That Actually Hurt",
                         url: "https://dn720704.ca.archive.org/0/items/invincible-2021-s-01-e-02-here-goes-nothing-1080p-web-dl-x-265-sampa/Invincible%20%282021%29%20Season%201%20S01%20%281080p%20WEB-DL%20x265%20HEVC%2010bit%20EAC3%205.1%20SAMPA%29/Invincible%20%282021%29%20-%20S01E05%20-%20That%20Actually%20Hurt%20%281080p%20WEB-DL%20x265%20SAMPA%29.mp4",
                         description: "Mark faces his toughest challenge yet when he battles a villain who knows how to hit him where it hurts. Meanwhile, the mystery surrounding Omni-Man deepens."
+                    },
+                    {
+                        title: "Episode 6: You Look Kinda Dead",
+                        url: "https://ia800309.us.archive.org/13/items/Invincible_Season_1/EP6.ia.mp4",
+                        description: "Mark deals with the aftermath of recent events while trying to maintain his superhero duties. New threats emerge that test his resolve."
+                    },
+                    {
+                        title: "Episode 7: We Need to Talk",
+                        url: "https://ia600309.us.archive.org/13/items/Invincible_Season_1/EP7.ia.mp4",
+                        description: "Mark has a difficult conversation that changes everything. The truth about Omni-Man begins to come to light."
+                    },
+                    {
+                        title: "Episode 8: Where I Really Come From",
+                        url: "https://ia800309.us.archive.org/13/items/Invincible_Season_1/EP8.ia.mp4",
+                        description: "The shocking season finale reveals Omni-Man's true nature and forces Mark to make an impossible choice."
                     }
                 ]
             },
@@ -497,6 +530,51 @@
                         description: "The season reaches its explosive conclusion as Mark faces his greatest challenge yet. The fate of Earth hangs in the balance."
                     }
                 ]
+            },
+            3: {
+                poster: "https://m.media-amazon.com/images/M/MV5BMTY1NTEwNTU5OV5BMl5BanBnXkFtZTgwMzUyMDg0MTE@._V1_FMjpg_UX1000_.jpg",
+                episodes: [
+                    {
+                        title: "Episode 1: The Viltrumite War Begins",
+                        url: "https://ia600406.us.archive.org/8/items/invincible-season-3/Invincible%20s03e01.mp4",
+                        description: "Mark faces the full might of the Viltrumite Empire as war comes to Earth. New alliances form while old ones are tested to their limits."
+                    },
+                    {
+                        title: "Episode 2: Bloodlines",
+                        url: "https://ia600406.us.archive.org/8/items/invincible-season-3/Invincible%20s03e02.mp4",
+                        description: "Mark discovers shocking truths about his heritage. The global coalition prepares for the Viltrumite threat while dealing with internal conflicts."
+                    },
+                    {
+                        title: "Episode 3: Fractured Worlds",
+                        url: "https://ia600406.us.archive.org/8/items/invincible-season-3/Invincible%20s03e03.mp4",
+                        description: "The battle spreads to multiple fronts as the Viltrumites reveal their full strategy. Mark must make difficult choices about who to trust."
+                    },
+                    {
+                        title: "Episode 4: The Cost of Victory",
+                        url: "https://ia600406.us.archive.org/8/items/invincible-season-3/Invincible%20s03e04.ia.mp4",
+                        description: "Casualties mount as the war intensifies. Mark and his allies discover the true price they must pay to stand against the Viltrumite empire."
+                    },
+                    {
+                        title: "Episode 5: Endgame",
+                        url: "https://ia800406.us.archive.org/8/items/invincible-season-3/Invincible%20s03e05.mp4",
+                        description: "The final battle approaches as both sides prepare their ultimate strategies. Mark must confront his father in a confrontation that will decide Earth's fate."
+                    },
+                    {
+                        title: "Episode 6: Fallout",
+                        url: "https://ia800406.us.archive.org/8/items/invincible-season-3/Invincible%20s03e06.mp4",
+                        description: "In the aftermath of the war, Mark deals with the consequences of his choices. The world struggles to rebuild while new threats emerge from the shadows."
+                    },
+                    {
+                        title: "Episode 7: Legacy",
+                        url: "https://ia800406.us.archive.org/8/items/invincible-season-3/Invincible%20s03e07.mp4",
+                        description: "Mark comes to terms with his role in the new world order. The surviving Viltrumites reveal their true intentions for Earth and its people."
+                    },
+                    {
+                        title: "Episode 8: Invincible",
+                        url: "https://ia600406.us.archive.org/8/items/invincible-season-3/Invincible%20s03e08.mp4",
+                        description: "The season finale brings Mark's journey full circle as he must decide what kind of hero he wants to be. The fate of multiple worlds hangs in the balance."
+                    }
+                ]
             }
         };
 
@@ -513,6 +591,7 @@
         const videoContainer = document.getElementById('videoContainer');
         const season1Btn = document.getElementById('season1Btn');
         const season2Btn = document.getElementById('season2Btn');
+        const season3Btn = document.getElementById('season3Btn');
         
         let currentSeason = 1;
         let currentEpisodeIndex = 0;
@@ -522,6 +601,7 @@
             loadSeason(1);
             season1Btn.addEventListener('click', () => loadSeason(1));
             season2Btn.addEventListener('click', () => loadSeason(2));
+            season3Btn.addEventListener('click', () => loadSeason(3));
             
             // Navigation controls
             prevBtn.addEventListener('click', () => {
@@ -555,6 +635,7 @@
             // Update season buttons
             season1Btn.classList.toggle('active', seasonNumber === 1);
             season2Btn.classList.toggle('active', seasonNumber === 2);
+            season3Btn.classList.toggle('active', seasonNumber === 3);
             
             // Update poster
             videoElement.poster = seasons[seasonNumber].poster;
