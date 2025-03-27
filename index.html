@@ -4,7 +4,77 @@
     <title>Invincible - Season 1</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        /* ... (keep the same CSS styles as before) ... */
+        body {
+            background-color: #1a1a1a;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .episode-list {
+            display: grid;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .episode-btn {
+            padding: 12px;
+            background: #2a2a2a;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: left;
+        }
+
+        .episode-btn:hover {
+            background: #3a3a3a;
+            transform: translateX(5px);
+        }
+
+        .video-container {
+            width: 100%;
+            position: relative;
+            margin-top: 20px;
+        }
+
+        video {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .episode-info {
+            margin-top: 15px;
+            font-size: 1.2em;
+            text-align: center;
+            padding: 10px;
+            background: #2a2a2a;
+            border-radius: 5px;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                width: 95%;
+            }
+            
+            video {
+                border-radius: 4px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -43,22 +113,37 @@
             {
                 title: "Episode 5 - That Actually Hurt",
                 url: "https://dn720704.ca.archive.org/0/items/invincible-2021-s-01-e-02-here-goes-nothing-1080p-web-dl-x-265-sampa/Invincible%20%282021%29%20Season%201%20S01%20%281080p%20WEB-DL%20x265%20HEVC%2010bit%20EAC3%205.1%20SAMPA%29/Invincible%20%282021%29%20-%20S01E05%20-%20That%20Actually%20Hurt%20%281080p%20WEB-DL%20x265%20SAMPA%29.mp4"
-            },
-            {
-                title: "Episode 6 - You Look Kinda Dead",
-                url: "https://dn720704.ca.archive.org/0/items/invincible-2021-s-01-e-02-here-goes-nothing-1080p-web-dl-x-265-sampa/Invincible%20%282021%29%20Season%201%20S01%20%281080p%20WEB-DL%20x265%20HEVC%2010bit%20EAC3%205.1%20SAMPA%29/Invincible%20%282021%29%20-%20S01E06%20-%20You%20Look%20Kinda%20Dead%20%281080p%20WEB-DL%20x265%20SAMPA%29.mp4"
-            },
-            {
-                title: "Episode 7 - We Need To Talk",
-                url: "https://dn720704.ca.archive.org/0/items/invincible-2021-s-01-e-02-here-goes-nothing-1080p-web-dl-x-265-sampa/Invincible%20%282021%29%20Season%201%20S01%20%281080p%20WEB-DL%20x265%20HEVC%2010bit%20EAC3%205.1%20SAMPA%29/Invincible%20%282021%29%20-%20S01E07%20-%20We%20Need%20To%20Talk%20%281080p%20WEB-DL%20x265%20SAMPA%29.mp4"
-            },
-            {
-                title: "Episode 8 - Where I Really Come From",
-                url: "https://dn720704.ca.archive.org/0/items/invincible-2021-s-01-e-02-here-goes-nothing-1080p-web-dl-x-265-sampa/Invincible%20%282021%29%20Season%201%20S01%20%281080p%20WEB-DL%20x265%20HEVC%2010bit%20EAC3%205.1%20SAMPA%29/Invincible%20%282021%29%20-%20S01E08%20-%20Where%20I%20Really%20Come%20From%20%281080p%20WEB-DL%20x265%20SAMPA%29.mp4"
             }
         ];
 
-        // ... (keep the same JavaScript code as before) ...
+        // Create episode buttons
+        const episodeList = document.getElementById('episodeList');
+        const videoElement = document.getElementById('mainVideo');
+        const sourceElement = document.querySelector('.video-source');
+        const episodeTitle = document.getElementById('episodeTitle');
+
+        episodes.forEach((episode, index) => {
+            const button = document.createElement('button');
+            button.className = 'episode-btn';
+            button.innerHTML = `${episode.title}`;
+            button.onclick = () => loadEpisode(episode.url, episode.title);
+            episodeList.appendChild(button);
+        });
+
+        // Load first episode by default
+        loadEpisode(episodes[0].url, episodes[0].title);
+
+        function loadEpisode(url, title) {
+            sourceElement.src = url;
+            videoElement.load();
+            episodeTitle.textContent = title;
+            
+            // Add slight scale animation
+            videoElement.style.transform = 'scale(0.98)';
+            setTimeout(() => {
+                videoElement.style.transform = 'scale(1)';
+            }, 200);
+        }
     </script>
 </body>
-        </html>
+</html>
