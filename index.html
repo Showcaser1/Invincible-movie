@@ -2,741 +2,388 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Invincible | Stream All Seasons</title>
+    <title>Invincible | All Seasons</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Watch Invincible Seasons 1-3 in high quality">
+    <meta name="description" content="Watch all seasons of Invincible">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Bangers&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Bangers&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --primary: #e62429; /* Comic book red */
-            --secondary: #202020;
-            --accent: #f78f3f;
-            --text: #f0f0f0;
-            --dark-bg: #151515;
-            --card-bg: #252525;
-            --hover-bg: #353535;
+            --primary: #e62429;
+            --dark: #151515;
+            --light: #f0f0f0;
+            --gray: #252525;
         }
-        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
         body {
-            background-color: var(--dark-bg);
-            color: var(--text);
             font-family: 'Roboto', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
             line-height: 1.6;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            background-image: radial-gradient(circle at 20% 30%, rgba(230, 36, 41, 0.1) 0%, transparent 20%),
-                            radial-gradient(circle at 80% 70%, rgba(247, 143, 63, 0.1) 0%, transparent 20%);
         }
-        
         .container {
-            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
         }
-        
         header {
-            background: linear-gradient(to right, var(--secondary), var(--dark-bg));
+            background: linear-gradient(to right, #202020, var(--dark));
             padding: 20px 0;
-            margin-bottom: 30px;
             border-bottom: 3px solid var(--primary);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
-        
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-        
         h1 {
             font-family: 'Bangers', cursive;
-            font-size: 2.8rem;
-            letter-spacing: 2px;
+            font-size: 3rem;
             color: var(--primary);
-            text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.5);
-            margin-bottom: 10px;
+            text-shadow: 3px 3px 0 #000;
+            letter-spacing: 2px;
         }
-        
         .season-selector {
             display: flex;
             gap: 10px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
+            margin: 20px 0;
         }
-        
         .season-btn {
-            background: var(--secondary);
+            background: var(--gray);
             color: white;
             border: none;
             padding: 8px 15px;
             border-radius: 4px;
             cursor: pointer;
-            font-weight: 500;
             transition: all 0.2s;
         }
-        
         .season-btn.active {
             background: var(--primary);
-            box-shadow: 0 0 10px rgba(230, 36, 41, 0.5);
         }
-        
-        .season-btn:hover:not(.active) {
-            background: var(--hover-bg);
-        }
-        
-        .season-info {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-        
-        .rating {
-            background-color: var(--primary);
-            color: white;
-            padding: 5px 10px;
-            border-radius: 4px;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-        
-        .genre-tags {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-        
-        .genre-tag {
-            background-color: var(--secondary);
-            padding: 5px 10px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-        }
-        
         .main-content {
             display: grid;
-            grid-template-columns: 1fr 3fr;
+            grid-template-columns: 300px 1fr;
             gap: 30px;
         }
-        
-        @media (max-width: 768px) {
-            .main-content {
-                grid-template-columns: 1fr;
-            }
-        }
-        
         .episode-list {
             display: flex;
             flex-direction: column;
             gap: 10px;
-            max-height: 600px;
+            height: 70vh;
             overflow-y: auto;
-            padding-right: 5px;
         }
-        
-        .episode-list::-webkit-scrollbar {
-            width: 6px;
-        }
-        
-        .episode-list::-webkit-scrollbar-track {
-            background: var(--secondary);
-        }
-        
-        .episode-list::-webkit-scrollbar-thumb {
-            background: var(--primary);
-            border-radius: 3px;
-        }
-        
         .episode-btn {
-            padding: 15px;
-            background: var(--card-bg);
+            background: var(--gray);
+            color: white;
             border: none;
-            color: var(--text);
-            border-radius: 6px;
-            cursor: pointer;
-            transition: all 0.3s ease;
+            padding: 12px;
             text-align: left;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
             display: flex;
             align-items: center;
             gap: 10px;
-            font-weight: 500;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
-        
         .episode-btn:hover, .episode-btn.active {
             background: var(--primary);
             transform: translateX(5px);
-            box-shadow: 0 4px 8px rgba(230, 36, 41, 0.3);
         }
-        
-        .episode-btn i {
-            font-size: 1.2rem;
-        }
-        
-        .video-section {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-        
         .video-container {
             width: 100%;
-            position: relative;
+            background: #000;
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
-            background: black;
         }
-        
         video {
             width: 100%;
-            height: auto;
             display: block;
         }
-        
-        .custom-controls {
-            position: absolute;
-            bottom: 10px;
-            left: 0;
-            right: 0;
+        .controls {
             display: flex;
-            justify-content: center;
-            opacity: 0;
-            transition: opacity 0.3s;
+            gap: 10px;
+            margin-top: 15px;
         }
-        
-        .video-container:hover .custom-controls {
-            opacity: 1;
-        }
-        
-        .fullscreen-btn {
-            background: rgba(0, 0, 0, 0.7);
+        .control-btn {
+            background: var(--gray);
             color: white;
             border: none;
             padding: 8px 15px;
             border-radius: 4px;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            font-size: 0.9rem;
         }
-        
-        .fullscreen-btn:hover {
-            background: var(--primary);
-        }
-        
-        .episode-info {
-            background: var(--card-bg);
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-        
-        .episode-info h2 {
-            color: var(--primary);
-            margin-bottom: 10px;
-            font-family: 'Bangers', cursive;
-            letter-spacing: 1px;
-            font-size: 1.8rem;
-        }
-        
-        .episode-description {
-            color: #ccc;
-            line-height: 1.6;
-        }
-        
-        .controls {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        
-        .control-btn {
-            background: var(--secondary);
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 4px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.2s;
-        }
-        
-        .control-btn:hover {
-            background: var(--primary);
-        }
-        
-        .quality-selector {
-            margin-left: auto;
-            background: var(--secondary);
-            color: white;
-            border: none;
-            padding: 10px;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        
-        footer {
-            margin-top: auto;
-            background: var(--secondary);
-            padding: 20px 0;
-            text-align: center;
-            font-size: 0.9rem;
-            color: #aaa;
-        }
-        
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 2rem;
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
             }
-            
-            .header-content {
-                flex-direction: column;
-                align-items: flex-start;
+            .episode-list {
+                height: auto;
+                max-height: 200px;
             }
-            
-            .episode-btn {
-                padding: 12px;
-                font-size: 0.9rem;
-            }
-            
-            .controls {
-                flex-wrap: wrap;
-            }
-            
-            .quality-selector {
-                margin-left: 0;
-                width: 100%;
-            }
-        }
-        
-        /* Animation classes */
-        .scale-in {
-            animation: scaleIn 0.3s ease-out;
-        }
-        
-        @keyframes scaleIn {
-            from { transform: scale(0.95); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
-        
-        .pulse {
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(230, 36, 41, 0.4); }
-            70% { box-shadow: 0 0 0 10px rgba(230, 36, 41, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(230, 36, 41, 0); }
-        }
-        
-        /* Fullscreen styles */
-        :fullscreen video {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-        
-        :-webkit-full-screen video {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-        
-        :-moz-full-screen video {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
         }
     </style>
 </head>
 <body>
     <header>
         <div class="container">
-            <div class="header-content">
-                <h1>INVINCIBLE</h1>
-                <div class="season-info">
-                    <span class="rating">
-                        <i class="fas fa-star"></i> 8.7
-                    </span>
-                    <span>2021-2025</span>
-                </div>
-            </div>
-            <div class="genre-tags">
-                <span class="genre-tag">Animation</span>
-                <span class="genre-tag">Action</span>
-                <span class="genre-tag">Superhero</span>
-                <span class="genre-tag">Drama</span>
+            <h1>INVINCIBLE</h1>
+            <div class="season-selector">
+                <button class="season-btn active" data-season="1">Season 1</button>
+                <button class="season-btn" data-season="2">Season 2</button>
+                <button class="season-btn" data-season="3">Season 3</button>
             </div>
         </div>
     </header>
-    
+
     <main class="container">
-        <div class="season-selector">
-            <button class="season-btn active" id="season1Btn">Season 1</button>
-            <button class="season-btn" id="season2Btn">Season 2</button>
-            <button class="season-btn" id="season3Btn">Season 3</button>
-        </div>
-        
         <div class="main-content">
             <div class="episode-list" id="episodeList"></div>
             
             <div class="video-section">
-                <div class="video-container" id="videoContainer">
-                    <video controls id="mainVideo" poster="https://m.media-amazon.com/images/M/MV5BMmE1ODVhMGYtODYyYS00Mjc4LWIzN2EtYWZkZDg1MTUyNDkxXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg">
-                        <source src="" type="video/mp4" class="video-source">
+                <div class="video-container">
+                    <video controls id="videoPlayer">
                         Your browser does not support the video tag.
                     </video>
-                    <div class="custom-controls">
-                        <button class="fullscreen-btn" id="fullscreenBtn">
-                            <i class="fas fa-expand"></i> Fullscreen
-                        </button>
-                    </div>
                 </div>
                 
-                <div class="episode-info" id="episodeInfo">
+                <div class="episode-info">
                     <h2 id="episodeTitle"></h2>
-                    <p class="episode-description" id="episodeDescription"></p>
+                    <p id="episodeDesc"></p>
                     <div class="controls">
-                        <button class="control-btn" id="prevBtn">
-                            <i class="fas fa-step-backward"></i> Previous
-                        </button>
-                        <button class="control-btn" id="nextBtn">
-                            Next <i class="fas fa-step-forward"></i>
-                        </button>
-                        <select class="quality-selector" id="qualitySelector">
-                            <option value="1080">1080p</option>
-                            <option value="720">720p</option>
-                            <option value="480">480p</option>
-                        </select>
+                        <button id="prevBtn"><i class="fas fa-step-backward"></i> Previous</button>
+                        <button id="nextBtn">Next <i class="fas fa-step-forward"></i></button>
                     </div>
                 </div>
             </div>
         </div>
     </main>
-    
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 StreamHub. All rights reserved.</p>
-            <p>Disclaimer: This content is provided for educational purposes only.</p>
-        </div>
-    </footer>
 
     <script>
         const seasons = {
             1: {
-                poster: "https://m.media-amazon.com/images/M/MV5BMmE1ODVhMGYtODYyYS00Mjc4LWIzN2EtYWZkZDg1MTUyNDkxXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg",
                 episodes: [
                     {
                         title: "Episode 1: It's About Time",
                         url: "https://dn720704.ca.archive.org/0/items/invincible-2021-s-01-e-02-here-goes-nothing-1080p-web-dl-x-265-sampa/Invincible%20%282021%29%20Season%201%20S01%20%281080p%20WEB-DL%20x265%20HEVC%2010bit%20EAC3%205.1%20SAMPA%29/Invincible%20%282021%29%20-%20S01E01%20-%20It%27s%20About%20Time%20%281080p%20WEB-DL%20x265%20SAMPA%29.mp4",
-                        description: "Mark Grayson is a normal teenager except for the fact that his father is the most powerful superhero on the planet. Shortly after his seventeenth birthday, Mark begins to develop powers of his own and enters into his father's tutelage."
+                        desc: "Mark Grayson begins developing superpowers like his father Omni-Man."
                     },
                     {
                         title: "Episode 2: Here Goes Nothing",
                         url: "https://dn720704.ca.archive.org/0/items/invincible-2021-s-01-e-02-here-goes-nothing-1080p-web-dl-x-265-sampa/Invincible%20%282021%29%20Season%201%20S01%20%281080p%20WEB-DL%20x265%20HEVC%2010bit%20EAC3%205.1%20SAMPA%29/Invincible%20%282021%29%20-%20S01E02%20-%20Here%20Goes%20Nothing%20%281080p%20WEB-DL%20x265%20SAMPA%29.mp4",
-                        description: "Mark goes on his first superhero mission with his father, but things don't go as planned. Meanwhile, Debbie grows suspicious of Omni-Man's recent behavior."
+                        desc: "Mark goes on his first mission with his father."
                     },
                     {
                         title: "Episode 3: Who You Calling Ugly?",
                         url: "https://dn720704.ca.archive.org/0/items/invincible-2021-s-01-e-02-here-goes-nothing-1080p-web-dl-x-265-sampa/Invincible%20%282021%29%20Season%201%20S01%20%281080p%20WEB-DL%20x265%20HEVC%2010bit%20EAC3%205.1%20SAMPA%29/Invincible%20%282021%29%20-%20S01E03%20-%20Who%20Are%20You%20Calling%20Ugly%20%281080p%20WEB-DL%20x265%20SAMPA%29.mp4",
-                        description: "Mark teams up with the Teen Team to stop a monstrous threat. Meanwhile, Omni-Man's strange behavior continues to worry Debbie."
+                        desc: "Mark teams up with the Teen Team."
                     },
                     {
                         title: "Episode 4: Neil Armstrong, Eat Your Heart Out",
                         url: "https://dn720704.ca.archive.org/0/items/invincible-2021-s-01-e-02-here-goes-nothing-1080p-web-dl-x-265-sampa/Invincible%20%282021%29%20Season%201%20S01%20%281080p%20WEB-DL%20x265%20HEVC%2010bit%20EAC3%205.1%20SAMPA%29/Invincible%20%282021%29%20-%20S01E04%20-%20Neil%20Armstrong%20Eat%20Your%20Heart%20Out%20%281080p%20WEB-DL%20x265%20SAMPA%29.mp4",
-                        description: "Mark is sent to Mars on a mission that will change his life forever. Meanwhile, Cecil grows suspicious of Omni-Man's actions."
+                        desc: "Mark goes on a mission to Mars."
                     },
                     {
                         title: "Episode 5: That Actually Hurt",
                         url: "https://dn720704.ca.archive.org/0/items/invincible-2021-s-01-e-02-here-goes-nothing-1080p-web-dl-x-265-sampa/Invincible%20%282021%29%20Season%201%20S01%20%281080p%20WEB-DL%20x265%20HEVC%2010bit%20EAC3%205.1%20SAMPA%29/Invincible%20%282021%29%20-%20S01E05%20-%20That%20Actually%20Hurt%20%281080p%20WEB-DL%20x265%20SAMPA%29.mp4",
-                        description: "Mark faces his toughest challenge yet when he battles a villain who knows how to hit him where it hurts. Meanwhile, the mystery surrounding Omni-Man deepens."
+                        desc: "Mark faces his toughest challenge yet."
                     },
                     {
                         title: "Episode 6: You Look Kinda Dead",
-                        url: "https://ia800309.us.archive.org/13/items/Invincible_Season_1/EP6.ia.mp4",
-                        description: "Mark deals with the aftermath of recent events while trying to maintain his superhero duties. New threats emerge that test his resolve."
+                        url: "https://dn720704.ca.archive.org/0/items/invincible-2021-s-01-e-02-here-goes-nothing-1080p-web-dl-x-265-sampa/Invincible%20%282021%29%20Season%201%20S01%20%281080p%20WEB-DL%20x265%20HEVC%2010bit%20EAC3%205.1%20SAMPA%29/Invincible%20%282021%29%20-%20S01E06%20-%20You%20Look%20Kinda%20Dead%20%281080p%20WEB-DL%20x265%20SAMPA%29.mp4",
+                        desc: "Mark deals with the aftermath of recent events."
                     },
                     {
                         title: "Episode 7: We Need to Talk",
-                        url: "https://ia600309.us.archive.org/13/items/Invincible_Season_1/EP7.ia.mp4",
-                        description: "Mark has a difficult conversation that changes everything. The truth about Omni-Man begins to come to light."
+                        url: "https://dn720704.ca.archive.org/0/items/invincible-2021-s-01-e-02-here-goes-nothing-1080p-web-dl-x-265-sampa/Invincible%20%282021%29%20Season%201%20S01%20%281080p%20WEB-DL%20x265%20HEVC%2010bit%20EAC3%205.1%20SAMPA%29/Invincible%20%282021%29%20-%20S01E07%20-%20We%20Need%20To%20Talk%20%281080p%20WEB-DL%20x265%20SAMPA%29.mp4",
+                        desc: "Mark has a difficult conversation."
                     },
                     {
                         title: "Episode 8: Where I Really Come From",
-                        url: "https://ia800309.us.archive.org/13/items/Invincible_Season_1/EP8.ia.mp4",
-                        description: "The shocking season finale reveals Omni-Man's true nature and forces Mark to make an impossible choice."
+                        url: "https://dn720704.ca.archive.org/0/items/invincible-2021-s-01-e-02-here-goes-nothing-1080p-web-dl-x-265-sampa/Invincible%20%282021%29%20Season%201%20S01%20%281080p%20WEB-DL%20x265%20HEVC%2010bit%20EAC3%205.1%20SAMPA%29/Invincible%20%282021%29%20-%20S01E08%20-%20Where%20I%20Really%20Come%20From%20%281080p%20WEB-DL%20x265%20SAMPA%29.mp4",
+                        desc: "The shocking season finale."
                     }
                 ]
             },
             2: {
-                poster: "https://m.media-amazon.com/images/M/MV5BNzY1YjIxNGMtMTA3Yi00NzA0LTk2ZDgtZjU4NWNhMzFhZTE0XkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_FMjpg_UX1000_.jpg",
                 episodes: [
                     {
                         title: "Episode 1: A Lesson For Your Next Life",
                         url: "https://dn721609.ca.archive.org/0/items/invincible.-2021.-s-02-e-01.-a.-lesson.-for.-your.-next.-life.-1080p.-10bit.-amz/Invincible.%282021%29.S02E01.A.Lesson.For.Your.Next.Life.1080p.10bit.AMZN.WEB-DL.DDP5.1.HEVC-Vyndros.mp4",
-                        description: "Mark struggles to adapt to his new life as he continues to battle the aftermath of his father's betrayal. Meanwhile, new threats emerge that will test him like never before."
+                        desc: "Mark struggles after his father's betrayal."
                     },
                     {
                         title: "Episode 2: In About Six Hours I Lose My Virginity to a Fish",
                         url: "https://ia600309.us.archive.org/30/items/invincible.-2021.-s-02-e-01.-a.-lesson.-for.-your.-next.-life.-1080p.-10bit.-amz/Invincible.%282021%29.S02E02.In.About.Six.Hours.I.Lose.My.Virginity.To.A.Fish.1080p.10bit.AMZN.WEB-DL.DDP5.1.HEVC-Vyndros.mp4",
-                        description: "Mark faces an unusual challenge while dealing with personal issues. The Guardians of the Globe investigate a mysterious new threat."
+                        desc: "Mark faces an unusual challenge."
                     },
                     {
                         title: "Episode 3: This Missive, This Machination!",
                         url: "https://dn721609.ca.archive.org/0/items/invincible.-2021.-s-02-e-01.-a.-lesson.-for.-your.-next.-life.-1080p.-10bit.-amz/Invincible.%282021%29.S02E03.This.Missive%2C.This.Machination%21.1080p.10bit.AMZN.WEB-DL.DDP5.1.HEVC-Vyndros.mp4",
-                        description: "Mark receives shocking news that will change everything. A new villain emerges with a dangerous agenda."
+                        desc: "Mark receives shocking news."
                     },
                     {
                         title: "Episode 4: It's Been A While",
                         url: "https://dn721609.ca.archive.org/0/items/invincible.-2021.-s-02-e-01.-a.-lesson.-for.-your.-next.-life.-1080p.-10bit.-amz/Invincible.%282021%29.S02E04.It%27s.Been.A.While.1080p.10bit.AMZN.WEB-DL.DDP5.1.HEVC-Vyndros.mp4",
-                        description: "Mark reunites with someone from his past while dealing with the consequences of recent events. The global situation grows more precarious."
+                        desc: "Mark reunites with someone from his past."
                     },
                     {
                         title: "Episode 5: This Must Come As A Shock",
                         url: "https://dn721609.ca.archive.org/0/items/invincible.-2021.-s-02-e-01.-a.-lesson.-for.-your.-next.-life.-1080p.-10bit.-amz/Invincible.%282021%29.S02E05.This.Must.Come.As.A.Shock.1080p.10bit.AMZN.WEB-DL.DDP5.1.HEVC-Vyndros.mp4",
-                        description: "A shocking revelation turns everything upside down for Mark and his allies. The Viltrumite threat becomes more immediate."
+                        desc: "A shocking revelation occurs."
                     },
                     {
                         title: "Episode 6: It's Not That Simple",
                         url: "https://dn721609.ca.archive.org/0/items/invincible.-2021.-s-02-e-01.-a.-lesson.-for.-your.-next.-life.-1080p.-10bit.-amz/Invincible.%282021%29.S02E06.It%27s.Not.That.Simple.1080p.10bit.AMZN.WEB-DL.DDP5.1.HEVC-Vyndros.mp4",
-                        description: "Mark grapples with complex moral dilemmas as the situation escalates. Relationships are tested under extreme pressure."
+                        desc: "Mark faces complex moral dilemmas."
                     },
                     {
                         title: "Episode 7: I'm Not Going Anywhere",
                         url: "https://dn721609.ca.archive.org/0/items/invincible.-2021.-s-02-e-01.-a.-lesson.-for.-your.-next.-life.-1080p.-10bit.-amz/Invincible.%282021%29.S02E07.I%27m.Not.Going.Anywhere.1080p.10bit.AMZN.WEB-DL.DDP5.1.HEVC-Vyndros.mp4",
-                        description: "Mark makes a stand against overwhelming odds. The final confrontation approaches as all parties prepare for the inevitable clash."
+                        desc: "Mark makes his stand."
                     },
                     {
                         title: "Episode 8: I Thought You Were Stronger",
                         url: "https://dn721609.ca.archive.org/0/items/invincible.-2021.-s-02-e-01.-a.-lesson.-for.-your.-next.-life.-1080p.-10bit.-amz/Invincible.%282021%29.S02E08.I.Thought.You.Were.Stronger.1080p.10bit.AMZN.WEB-DL.DDP5.1.HEVC-Vyndros.mp4",
-                        description: "The season reaches its explosive conclusion as Mark faces his greatest challenge yet. The fate of Earth hangs in the balance."
+                        desc: "The season reaches its conclusion."
                     }
                 ]
             },
             3: {
-                poster: "https://m.media-amazon.com/images/M/MV5BMTY1NTEwNTU5OV5BMl5BanBnXkFtZTgwMzUyMDg0MTE@._V1_FMjpg_UX1000_.jpg",
                 episodes: [
                     {
                         title: "Episode 1: The Viltrumite War Begins",
                         url: "https://ia600406.us.archive.org/8/items/invincible-season-3/Invincible%20s03e01.mp4",
-                        description: "Mark faces the full might of the Viltrumite Empire as war comes to Earth. New alliances form while old ones are tested to their limits."
+                        desc: "Mark faces the Viltrumite Empire."
                     },
                     {
                         title: "Episode 2: Bloodlines",
                         url: "https://ia600406.us.archive.org/8/items/invincible-season-3/Invincible%20s03e02.mp4",
-                        description: "Mark discovers shocking truths about his heritage. The global coalition prepares for the Viltrumite threat while dealing with internal conflicts."
+                        desc: "Mark discovers shocking truths."
                     },
                     {
                         title: "Episode 3: Fractured Worlds",
                         url: "https://ia600406.us.archive.org/8/items/invincible-season-3/Invincible%20s03e03.mp4",
-                        description: "The battle spreads to multiple fronts as the Viltrumites reveal their full strategy. Mark must make difficult choices about who to trust."
+                        desc: "The battle spreads."
                     },
                     {
                         title: "Episode 4: The Cost of Victory",
                         url: "https://ia600406.us.archive.org/8/items/invincible-season-3/Invincible%20s03e04.ia.mp4",
-                        description: "Casualties mount as the war intensifies. Mark and his allies discover the true price they must pay to stand against the Viltrumite empire."
+                        desc: "Casualties mount."
                     },
                     {
                         title: "Episode 5: Endgame",
                         url: "https://ia800406.us.archive.org/8/items/invincible-season-3/Invincible%20s03e05.mp4",
-                        description: "The final battle approaches as both sides prepare their ultimate strategies. Mark must confront his father in a confrontation that will decide Earth's fate."
+                        desc: "The final battle approaches."
                     },
                     {
                         title: "Episode 6: Fallout",
                         url: "https://ia800406.us.archive.org/8/items/invincible-season-3/Invincible%20s03e06.mp4",
-                        description: "In the aftermath of the war, Mark deals with the consequences of his choices. The world struggles to rebuild while new threats emerge from the shadows."
+                        desc: "Aftermath of the war."
                     },
                     {
                         title: "Episode 7: Legacy",
                         url: "https://ia800406.us.archive.org/8/items/invincible-season-3/Invincible%20s03e07.mp4",
-                        description: "Mark comes to terms with his role in the new world order. The surviving Viltrumites reveal their true intentions for Earth and its people."
+                        desc: "Mark comes to terms."
                     },
                     {
-                        title: "Episode 8: Conquests arrival",
-                        url: "https://ia800406.us.archive.org/8/items/invincible-season-3/Invincible%20s03e08.mp4",
-                        description: "The season finale brings Mark's journey full circle as he must decide what kind of hero he wants to be. The fate of multiple worlds hangs in the balance."
+                        title: "Episode 8: Invincible",
+                        url: "https://ia600406.us.archive.org/8/items/invincible-season-3/Invincible%20s03e08.mp4",
+                        desc: "Season finale."
                     }
                 ]
             }
         };
 
-        // DOM elements
+        // DOM Elements
+        const videoPlayer = document.getElementById('videoPlayer');
         const episodeList = document.getElementById('episodeList');
-        const videoElement = document.getElementById('mainVideo');
-        const sourceElement = document.querySelector('.video-source');
         const episodeTitle = document.getElementById('episodeTitle');
-        const episodeDescription = document.getElementById('episodeDescription');
+        const episodeDesc = document.getElementById('episodeDesc');
         const prevBtn = document.getElementById('prevBtn');
         const nextBtn = document.getElementById('nextBtn');
-        const qualitySelector = document.getElementById('qualitySelector');
-        const fullscreenBtn = document.getElementById('fullscreenBtn');
-        const videoContainer = document.getElementById('videoContainer');
-        const season1Btn = document.getElementById('season1Btn');
-        const season2Btn = document.getElementById('season2Btn');
-        const season3Btn = document.getElementById('season3Btn');
-        
+        const seasonBtns = document.querySelectorAll('.season-btn');
+
         let currentSeason = 1;
-        let currentEpisodeIndex = 0;
+        let currentEpisode = 0;
 
-        // Initialize the page
+        // Initialize
         function init() {
-            loadSeason(1);
-            season1Btn.addEventListener('click', () => loadSeason(1));
-            season2Btn.addEventListener('click', () => loadSeason(2));
-            season3Btn.addEventListener('click', () => loadSeason(3));
+            loadSeason(currentSeason);
             
-            // Navigation controls
-            prevBtn.addEventListener('click', () => {
-                if (currentEpisodeIndex > 0) {
-                    loadEpisode(currentEpisodeIndex - 1);
-                    updateActiveButton();
-                }
-            });
-            
-            nextBtn.addEventListener('click', () => {
-                if (currentEpisodeIndex < seasons[currentSeason].episodes.length - 1) {
-                    loadEpisode(currentEpisodeIndex + 1);
-                    updateActiveButton();
-                }
-            });
-            
-            // Quality selector (placeholder functionality)
-            qualitySelector.addEventListener('change', () => {
-                console.log(`Quality changed to ${qualitySelector.value}p`);
+            // Season selector
+            seasonBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    seasonBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    currentSeason = parseInt(btn.dataset.season);
+                    currentEpisode = 0;
+                    loadSeason(currentSeason);
+                });
             });
 
-            // Fullscreen functionality
-            fullscreenBtn.addEventListener('click', toggleFullscreen);
+            // Navigation
+            prevBtn.addEventListener('click', prevEpisode);
+            nextBtn.addEventListener('click', nextEpisode);
         }
 
-        // Load season function
-        function loadSeason(seasonNumber) {
-            currentSeason = seasonNumber;
-            currentEpisodeIndex = 0;
-            
-            // Update season buttons
-            season1Btn.classList.toggle('active', seasonNumber === 1);
-            season2Btn.classList.toggle('active', seasonNumber === 2);
-            season3Btn.classList.toggle('active', seasonNumber === 3);
-            
-            // Update poster
-            videoElement.poster = seasons[seasonNumber].poster;
-            
-            // Clear and recreate episode list
+        // Load season
+        function loadSeason(season) {
             episodeList.innerHTML = '';
-            seasons[seasonNumber].episodes.forEach((episode, index) => {
-                const button = document.createElement('button');
-                button.className = 'episode-btn';
-                button.innerHTML = `<i class="fas fa-play"></i> ${episode.title}`;
-                button.onclick = () => {
-                    loadEpisode(index);
-                    updateActiveButton();
-                };
-                episodeList.appendChild(button);
+            seasons[season].episodes.forEach((episode, index) => {
+                const btn = document.createElement('button');
+                btn.className = 'episode-btn';
+                btn.innerHTML = `<i class="fas fa-play"></i> ${episode.title}`;
+                btn.addEventListener('click', () => {
+                    loadEpisode(season, index);
+                });
+                episodeList.appendChild(btn);
             });
             
             // Load first episode
-            loadEpisode(0);
-            updateActiveButton();
+            loadEpisode(season, 0);
         }
 
-        // Load episode function
-        function loadEpisode(index) {
-            currentEpisodeIndex = index;
-            const episode = seasons[currentSeason].episodes[index];
-            
-            sourceElement.src = episode.url;
-            videoElement.load();
+        // Load episode
+        function loadEpisode(season, episodeIndex) {
+            const episode = seasons[season].episodes[episodeIndex];
+            videoPlayer.src = episode.url;
             episodeTitle.textContent = episode.title;
-            episodeDescription.textContent = episode.description;
+            episodeDesc.textContent = episode.desc;
             
-            // Add animation
-            videoElement.classList.add('scale-in');
-            setTimeout(() => videoElement.classList.remove('scale-in'), 300);
-            
-            // Update navigation buttons state
-            prevBtn.disabled = index === 0;
-            nextBtn.disabled = index === seasons[currentSeason].episodes.length - 1;
-            
-            // Scroll to top for better mobile experience
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-        
-        // Update active button in episode list
-        function updateActiveButton() {
-            const buttons = document.querySelectorAll('.episode-btn');
-            buttons.forEach((btn, index) => {
-                if (index === currentEpisodeIndex) {
+            // Update active button
+            document.querySelectorAll('.episode-btn').forEach((btn, index) => {
+                if(index === episodeIndex) {
                     btn.classList.add('active');
-                    btn.innerHTML = `<i class="fas fa-play"></i> ${seasons[currentSeason].episodes[index].title}`;
                 } else {
                     btn.classList.remove('active');
-                    btn.innerHTML = `<i class="fas fa-play"></i> ${seasons[currentSeason].episodes[index].title}`;
                 }
             });
+            
+            currentEpisode = episodeIndex;
+            updateNavButtons();
         }
 
-        function toggleFullscreen() {
-            if (!document.fullscreenElement) {
-                if (videoContainer.requestFullscreen) {
-                    videoContainer.requestFullscreen();
-                } else if (videoContainer.webkitRequestFullscreen) {
-                    videoContainer.webkitRequestFullscreen();
-                } else if (videoContainer.msRequestFullscreen) {
-                    videoContainer.msRequestFullscreen();
-                }
-            } else {
-                if (document.exitFullscreen) {
-                    document.exitFullscreen();
-                } else if (document.webkitExitFullscreen) {
-                    document.webkitExitFullscreen();
-                } else if (document.msExitFullscreen) {
-                    document.msExitFullscreen();
-                }
+        // Navigation
+        function prevEpisode() {
+            if(currentEpisode > 0) {
+                loadEpisode(currentSeason, currentEpisode - 1);
             }
         }
 
-        // Keyboard navigation
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowLeft' && currentEpisodeIndex > 0) {
-                loadEpisode(currentEpisodeIndex - 1);
-                updateActiveButton();
-            } else if (e.key === 'ArrowRight' && currentEpisodeIndex < seasons[currentSeason].episodes.length - 1) {
-                loadEpisode(currentEpisodeIndex + 1);
-                updateActiveButton();
-            } else if (e.key === 'f') {
-                toggleFullscreen();
+        function nextEpisode() {
+            if(currentEpisode < seasons[currentSeason].episodes.length - 1) {
+                loadEpisode(currentSeason, currentEpisode + 1);
             }
-        });
+        }
 
-        // Initialize the page
+        function updateNavButtons() {
+            prevBtn.disabled = currentEpisode === 0;
+            nextBtn.disabled = currentEpisode === seasons[currentSeason].episodes.length - 1;
+        }
+
+        // Initialize the app
         init();
-        
-        // Add pulse animation to current episode button
-        setInterval(() => {
-            const activeBtn = document.querySelector('.episode-btn.active');
-            if (activeBtn) {
-                activeBtn.classList.toggle('pulse');
-            }
-        }, 4000);
     </script>
 </body>
 </html>
