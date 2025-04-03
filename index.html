@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Invincible | All Seasons</title>
+    <title>Invincible | All Seasons + Minecraft</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Watch all seasons of Invincible">
+    <meta name="description" content="Watch all seasons of Invincible and Minecraft trailers">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Bangers&display=swap" rel="stylesheet">
@@ -15,6 +15,7 @@
             --dark: #151515;
             --light: #f0f0f0;
             --gray: #252525;
+            --minecraft-green: #5b9c64;
         }
         * {
             margin: 0;
@@ -65,6 +66,7 @@
             display: grid;
             grid-template-columns: 300px 1fr;
             gap: 30px;
+            margin-bottom: 40px;
         }
         .episode-list {
             display: flex;
@@ -113,6 +115,39 @@
             border-radius: 4px;
             cursor: pointer;
         }
+        
+        /* Minecraft Section */
+        .minecraft-section {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 3px solid var(--minecraft-green);
+        }
+        .minecraft-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .minecraft-header h2 {
+            font-family: 'Bangers', cursive;
+            font-size: 2.5rem;
+            color: var(--minecraft-green);
+            text-shadow: 3px 3px 0 #000;
+            letter-spacing: 2px;
+        }
+        .minecraft-header i {
+            font-size: 2rem;
+            color: var(--minecraft-green);
+        }
+        .minecraft-video-container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            background: #000;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
         @media (max-width: 768px) {
             .main-content {
                 grid-template-columns: 1fr;
@@ -155,6 +190,24 @@
                         <button id="nextBtn">Next <i class="fas fa-step-forward"></i></button>
                     </div>
                 </div>
+            </div>
+        </div>
+        
+        <!-- Minecraft Section -->
+        <div class="minecraft-section">
+            <div class="minecraft-header">
+                <i class="fas fa-cube"></i>
+                <h2>MINECRAFT</h2>
+            </div>
+            <div class="minecraft-video-container">
+                <video controls id="minecraftVideo">
+                    <source src="https://ia903207.us.archive.org/8/items/youtube-wJO_vIDZn-I/wJO_vIDZn-I.ia.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="episode-info" style="margin-top: 20px;">
+                <h2>Minecraft Official Trailer</h2>
+                <p>Watch the official trailer for the upcoming Minecraft movie!</p>
             </div>
         </div>
     </main>
@@ -386,4 +439,4 @@
         init();
     </script>
 </body>
-</html>
+    </html>
